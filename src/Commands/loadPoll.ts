@@ -5,7 +5,7 @@ import { Poll } from '../Interfaces/Poll';
 import { runPoll } from '../Utils/runPoll';
 
 const loadPoll = async (message: Message, args: string[]) => {
-    const savesRoute = `${__dirname}/../../saves`;
+    const savesRoute = `./../../saves`;
     const saveName = args[0];
     const saveFileName = saveName + '.json';
     const savePath = `${savesRoute}/${saveFileName}`;

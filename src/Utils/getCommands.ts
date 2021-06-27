@@ -2,7 +2,7 @@ import { readdirSync } from 'fs';
 import { Command } from '../Interfaces/Command';
 
 export const getCommands = async (): Promise<Command[]> => {
-    const route = `${__dirname}/../commands`;
+    const route = `./../commands`;
     const commandFiles = readdirSync(route);
     return Promise.all(
         commandFiles.map(
