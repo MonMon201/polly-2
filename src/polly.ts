@@ -9,7 +9,7 @@ polly
         console.log(`${polly.user?.username} bot has been started!`);
         console.log(`Guilds involved:`);
         polly.guilds.cache.map((el) => {
-            console.log(`${el.name}\n`);
+            console.log(`${el.name}`);
         });
     })
     .on('warn', (info) => console.log(info))

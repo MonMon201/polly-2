@@ -1,5 +1,4 @@
-import { Client, Collection, Message } from 'discord.js';
-// import { readdir } from 'fs/promises'
+import { Client, Collection } from 'discord.js';
 import { Config } from '../Interfaces/Config';
 import { Command } from '../Interfaces/Command';
 import { getCommands } from '../Utils/getCommands';
