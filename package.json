@@ -3,8 +3,8 @@
     "version": "1.0.0",
     "description": "Polly bot for polls in discord",
     "scripts": {
-        "start:dev": "set NODE_ENV=dev && tsc && nodemon ./dist/index.js",
-        "start": "set NODE_ENV=production && tsc && nodemon ./dist/index.js",
+        "start:dev": "set NODE_ENV=dev && npx tsc && nodemon ./dist/index.js",
+        "start": "set NODE_ENV=production && npx tsc && nodemon ./dist/index.js",
         "prettier": "prettier --write ./src"
     },
     "repository": {
