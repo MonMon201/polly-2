@@ -7,7 +7,7 @@ const savePoll = async (message: Message, args: string[]) => {
     const name = args[0];
     const fileName = name + '.json';
     const options = getOptions(args.slice(1, args.length));
-    const savesRoute = `./../../saves`;
+    const savesRoute = `${__dirname}/../../saves`;
     if (!existsSync(savesRoute)) {
         mkdirSync(savesRoute);
     }
