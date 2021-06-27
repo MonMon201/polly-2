@@ -1,4 +1,4 @@
-import { readdirSync } from 'node:fs';
+import { readdirSync } from 'fs';
 import { Command } from '../Interfaces/Command';
 
 export const getCommands = async (): Promise<Command[]> => {

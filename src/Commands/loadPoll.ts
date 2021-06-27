@@ -1,5 +1,5 @@
 import { Message } from 'discord.js';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'fs';
 import { Command } from '../Interfaces/Command';
 import { Poll } from '../Interfaces/Poll';
 import { runPoll } from '../Utils/runPoll';

@@ -1,5 +1,5 @@
 import { Message } from 'discord.js';
-import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, writeFileSync } from 'fs';
 import { Command } from '../Interfaces/Command';
 import { getOptions } from '../Utils/getOptions';
 
