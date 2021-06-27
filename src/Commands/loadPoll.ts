@@ -21,7 +21,7 @@ const loadPoll = async (message: Message, args: string[]) => {
 const command: Command = {
     name: 'loadPoll',
     description: 'Runs saved poll',
-    example: '/loadPoll PollName',
+    example: '!loadPoll PollName',
     execute: loadPoll,
 };
 

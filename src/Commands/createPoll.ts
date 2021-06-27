@@ -12,7 +12,7 @@ const command: Command = {
     name: 'createPoll',
     description: 'Create a new poll',
     execute: createPoll,
-    example: '/createPoll option a, option b, option c',
+    example: '!createPoll option a, option b, option c',
 };
 
 module.exports = command;

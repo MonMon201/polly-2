@@ -16,7 +16,7 @@ const command: Command = {
     name: 'help',
     description: 'See examples and descriptions for commands',
     execute: help,
-    example: '/help',
+    example: '!help',
 };
 
 module.exports = command;

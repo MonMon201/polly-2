@@ -20,7 +20,7 @@ polly
         );
         if (message.author.bot) return;
         if (!message.guild) return;
-        const parsed = parse(message, '/', {});
+        const parsed = parse(message, '!', {});
         if (!parsed.success) return;
         console.log(`command: ${parsed.command}`);
         console.log(`args: ${parsed.arguments}`);

@@ -9,7 +9,7 @@ const status = async (message: Message) => {
 const command: Command = {
     name: 'healthcheck',
     description: 'Check if bot is up',
-    example: '/healthcheck',
+    example: '!healthcheck',
     execute: status,
 };
 

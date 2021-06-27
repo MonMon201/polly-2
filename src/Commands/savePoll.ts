@@ -24,7 +24,7 @@ const command: Command = {
     name: 'savePoll',
     description: 'Create a new poll',
     execute: savePoll,
-    example: '/savePoll PollName option a, option b, option c',
+    example: '!savePoll PollName option a, option b, option c',
 };
 
 module.exports = command;
