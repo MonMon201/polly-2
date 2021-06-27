@@ -1,7 +1,8 @@
 import { Config } from '../Interfaces/Config';
 
 export const getConfig = (): Config => {
-    if (process.env.NODE_ENV?.trim() == 'production') {
+    const nodeEnv = process.env.NODE_ENV || '';
+    if (nodeEnv.trim() === 'production') {
         return {
             token: process.env.TOKEN || '',
             prod: true,
