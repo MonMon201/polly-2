@@ -5,7 +5,7 @@
     "scripts": {
         "start:dev": "set NODE_ENV=dev && tsc && nodemon ./dist/index.js",
         "start": "set NODE_ENV=production && ts-node ./src/index.ts",
-        "prettier": "prettier --write ."
+        "prettier": "prettier --write ./src"
     },
     "repository": {
         "type": "git",
@@ -16,7 +16,9 @@
     "dependencies": {
         "discord-command-parser": "^1.5.3",
         "discord.js": "^12.3.1",
-        "dotenv": "^8.2.0"
+        "dotenv": "^8.2.0",
+        "ts-node": "^3.3.0",
+        "typescript": "^2.4.2"
     },
     "devDependencies": {
         "@types/glob": "^7.1.3",
