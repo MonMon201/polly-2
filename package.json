@@ -4,6 +4,7 @@
     "description": "Polly bot for polls in discord",
     "scripts": {
         "start:dev": "set NODE_ENV=dev && npx tsc && nodemon ./dist/index.js",
+        "postinstall": "npx tsc",
         "start": "ts-node ./dist/index.js",
         "prettier": "prettier --write ./src"
     },

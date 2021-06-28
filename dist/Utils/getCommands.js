@@ -18,12 +18,20 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getCommands = void 0;
 const fs_1 = require("fs");
+const path_1 = __importDefault(require("path"));
 const getCommands = async () => {
     const route = `${__dirname}/../Commands`;
-    const commandFiles = fs_1.readdirSync(route);
+    const commandFiles = fs_1.readdirSync(route).filter((file) => {
+        const ext = path_1.default.extname(file).toLowerCase();
+        return (ext === '.js' || ext === '.ts');
+    });
+    console.log(commandFiles);
     return Promise.all(commandFiles.map(async (cmdFile) => (await Promise.resolve().then(() => __importStar(require(`${route}/${cmdFile}`))))));
 };
 exports.getCommands = getCommands;
