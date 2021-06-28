@@ -6,5 +6,5 @@ var botStatus;
     botStatus["ONLINE"] = "online";
 })(botStatus = exports.botStatus || (exports.botStatus = {}));
 exports.separator = ',';
-exports.prefix = '!';
+exports.prefix = '/';
 //# sourceMappingURL=constants.js.map
