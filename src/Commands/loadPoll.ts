@@ -1,5 +1,6 @@
 import { Message } from 'discord.js';
 import { existsSync, readFileSync } from 'fs';
+import { prefix } from '../constants';
 import { Command } from '../Interfaces/Command';
 import { Poll } from '../Interfaces/Poll';
 import { runPoll } from '../Utils/runPoll';
@@ -14,14 +15,14 @@ const loadPoll = async (message: Message, args: string[]) => {
     console.log(`Save: ${saveFileName}\nStatus: exists`);
     const rawData = readFileSync(savePath);
     const poll: Poll = JSON.parse(rawData.toString());
-    console.log(`parsed saves: ${JSON.stringify(poll)}`);
+    console.log(`parsed: ${poll}`);
     await runPoll(message, poll.options);
 };
 
 const command: Command = {
     name: 'loadPoll',
     description: 'Runs saved poll',
-    example: '!loadPoll PollName',
+    example: `${prefix}loadPoll PollName`,
     execute: loadPoll,
 };
 

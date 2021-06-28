@@ -1,4 +1,5 @@
 import { Message } from 'discord.js';
+import { prefix } from '../constants';
 import { Command } from '../Interfaces/Command';
 import { getOptions } from '../Utils/getOptions';
 import { runPoll } from '../Utils/runPoll';
@@ -12,7 +13,7 @@ const command: Command = {
     name: 'createPoll',
     description: 'Create a new poll',
     execute: createPoll,
-    example: '!createPoll option a, option b, option c',
+    example: `${prefix}createPoll option a, option b, option c`,
 };
 
 module.exports = command;
