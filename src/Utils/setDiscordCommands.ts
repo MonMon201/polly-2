@@ -8,15 +8,15 @@ export const setDiscordBotCommands = async (
     token: string,
     clientId: string,
 ): Promise<ApplicationCommand[]> => {
-    console.log(token, clientId);
     const url = `https://discord.com/api/v8/applications/${clientId}/commands`;
     const commands = await getCommands();
     const apiCommandsResponse = await getApiCommands(token, url);
-    const deletedCommandsResponse = await deleteApiCommands(apiCommandsResponse.data.map((command) => command.id), [], token, url)
-    return deletedCommandsResponse.map((deletedCommand) => deletedCommand.data);
-    // if (commands.length === apiCommandsResponse.data.length) {
-    //   return apiCommandsResponse.data;
-    // }
-    // const updatedApiCommands = await updateCommands(commands, url, token, []);
-    // return updatedApiCommands.map((updatedApiCommand) => updatedApiCommand.data);
+    console.log('API COMMANDS RESPONSE', apiCommandsResponse.data.map((apiCommand) => apiCommand));
+    // const deletedCommandsResponse = await deleteApiCommands(apiCommandsResponse.data.map((command) => command.id), [], token, url)
+    // return deletedCommandsResponse.map((deletedCommand) => deletedCommand.data);
+    if (commands.length === apiCommandsResponse.data.length) {
+      return apiCommandsResponse.data;
+    }
+    const updatedApiCommands = await updateCommands(commands, url, token, []);
+    return updatedApiCommands.map((updatedApiCommand) => updatedApiCommand.data);
 };
