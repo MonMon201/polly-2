@@ -4,4 +4,4 @@ export enum botStatus {
 
 export const separator = ',';
 
-export const prefix = '/';
+export const prefix = '!';
