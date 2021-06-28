@@ -11,11 +11,12 @@ export const setDiscordBotCommands = async (token: string, clientId: string) => 
     const commands = await client.getCommands({});
     console.log(commands);
     const commande = await getCommands();
-    console.log(commande[2]);
+    const command = commande[2];
+    console.log(command);
     const response = await client
       .createCommand({
-        name: commande[2].name,
-        description: `Description: ${commande[2].description}, Example: ${commande[2].example}`,
+        name: command.name,
+        description: `Description: ${command.description}, Example: ${command.example}`,
       });
       return response;
     // const commands = await getCommands();
