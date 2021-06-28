@@ -17,10 +17,24 @@ const savePoll = async (message, args) => {
     message.channel.send(`Poll saved with name: \n${name}`);
 };
 const command = {
-    name: 'savePoll',
+    name: 'save_poll',
     description: 'Create a new poll',
     execute: savePoll,
     example: `${constants_1.prefix}savePoll PollName option a, option b, option c`,
+    options: [
+        {
+            name: 'save',
+            description: `type in name for save`,
+            type: 3,
+            required: true,
+        },
+        {
+            name: 'options',
+            description: `type in options you'd like to save`,
+            type: 3,
+            required: true,
+        },
+    ],
 };
 module.exports = command;
 //# sourceMappingURL=savePoll.js.map

@@ -20,8 +20,8 @@ polly
     const token = environment_1.getConfig().token;
     const id = ((_b = polly.user) === null || _b === void 0 ? void 0 : _b.id) || '';
     const applicationCommands = await setDiscordCommands_1.setDiscordBotCommands(token, id);
-    console.log(applicationCommands);
-    // applicationCommands.map((applicationCommand) => console.log(`${applicationCommand.name} was added to bot's slashcommands`))
+    // console.log(applicationCommands);
+    applicationCommands.map((applicationCommand) => console.log(`${applicationCommand.name} was added to bot's slashcommands`));
     console.log(`${(_c = polly.user) === null || _c === void 0 ? void 0 : _c.username} bot has been started!`);
 })
     .on('warn', (info) => console.log(info))

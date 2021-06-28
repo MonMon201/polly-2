@@ -10,10 +10,18 @@ const createPoll = async (message: Message, args: string[]) => {
 };
 
 const command: Command = {
-    name: 'createPoll',
+    name: 'create_poll',
     description: 'Create a new poll',
     execute: createPoll,
     example: `${prefix}createPoll option a, option b, option c`,
+    options: [
+        {
+            name: 'options',
+            description: `type in options you'd like to see`,
+            type: 3,
+            required: true,
+        },
+    ],
 };
 
 module.exports = command;

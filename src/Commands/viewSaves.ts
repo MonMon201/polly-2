@@ -22,7 +22,7 @@ const viewSaves = async (message: Message) => {
 };
 
 const command: Command = {
-    name: 'viewSaves',
+    name: 'view_saves',
     description: 'Shows saved polls',
     example: `${prefix}viewSaves`,
     execute: viewSaves,

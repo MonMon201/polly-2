@@ -8,10 +8,18 @@ const createPoll = async (message, args) => {
     await runPoll_1.runPoll(message, options);
 };
 const command = {
-    name: 'createPoll',
+    name: 'create_poll',
     description: 'Create a new poll',
     execute: createPoll,
     example: `${constants_1.prefix}createPoll option a, option b, option c`,
+    options: [
+        {
+            name: 'options',
+            description: `type in options you'd like to see`,
+            type: 3,
+            required: true,
+        },
+    ],
 };
 module.exports = command;
 //# sourceMappingURL=createPoll.js.map

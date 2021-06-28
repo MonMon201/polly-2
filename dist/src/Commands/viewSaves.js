@@ -22,7 +22,7 @@ const viewSaves = async (message) => {
     await Promise.all(saves.map(async (save) => await showMessage_1.showMessage(message, save)));
 };
 const command = {
-    name: 'viewSaves',
+    name: 'view_saves',
     description: 'Shows saved polls',
     example: `${constants_1.prefix}viewSaves`,
     execute: viewSaves,

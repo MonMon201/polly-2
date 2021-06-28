@@ -1,30 +1,19 @@
-import { Client } from "discord-slash-commands-client";
-import { getCommands } from "./getCommands";
+import { ApplicationCommand } from 'discord-slash-commands-client';
+import { getApiCommands } from './getApiCommands';
+import { getCommands } from './getCommands';
+import { updateCommands } from './updateCommands';
 
-export const setDiscordBotCommands = async (token: string, clientId: string) => {
-    console.log(token, clientId)
-    const client = new Client(
-      token,
-      clientId
-    );
-    
-    const commands = await client.getCommands({});
-    console.log(commands);
-    const commande = await getCommands();
-    const command = commande[2];
-    console.log(command);
-    const response = await client
-      .createCommand({
-        name: command.name,
-        description: `Description: ${command.description}, Example: ${command.example}`,
-      });
-      return response;
-    // const commands = await getCommands();
-    // const responses = await Promise.all(commands.map(async (command) => 
-    // client
-    //   .createCommand({
-    //     name: command.name,
-    //     description: `Description: ${command.description}, Example: ${command.example}`,
-    //   })));
-    // return responses;
-}
+export const setDiscordBotCommands = async (
+    token: string,
+    clientId: string,
+): Promise<ApplicationCommand[]> => {
+    console.log(token, clientId);
+    const url = `https://discord.com/api/v8/applications/${clientId}/commands`;
+    const commands = await getCommands();
+    const apiCommandsResponse = await getApiCommands(token, url);
+    if (commands.length === apiCommandsResponse.data.length) {
+      return apiCommandsResponse.data;
+    }
+    const updatedApiCommands = await updateCommands(commands, url, token, []);
+    return updatedApiCommands.map((updatedApiCommand) => updatedApiCommand.data);
+};
