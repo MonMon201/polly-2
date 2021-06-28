@@ -1,5 +1,6 @@
 import { Message } from 'discord.js';
 import { existsSync, mkdirSync, writeFileSync } from 'fs';
+import { prefix } from '../constants';
 import { Command } from '../Interfaces/Command';
 import { getOptions } from '../Utils/getOptions';
 
@@ -24,7 +25,7 @@ const command: Command = {
     name: 'savePoll',
     description: 'Create a new poll',
     execute: savePoll,
-    example: '!savePoll PollName option a, option b, option c',
+    example: `${prefix}savePoll PollName option a, option b, option c`,
 };
 
 module.exports = command;

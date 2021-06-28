@@ -1,4 +1,5 @@
 import { Message } from 'discord.js';
+import { prefix } from '../constants';
 import { Command } from '../Interfaces/Command';
 import { getCommands } from '../Utils/getCommands';
 
@@ -16,7 +17,7 @@ const command: Command = {
     name: 'help',
     description: 'See examples and descriptions for commands',
     execute: help,
-    example: '!help',
+    example: `${prefix}help`,
 };
 
 module.exports = command;
