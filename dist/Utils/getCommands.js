@@ -31,7 +31,6 @@ const getCommands = async () => {
         const ext = path_1.default.extname(file).toLowerCase();
         return (ext === '.js' || ext === '.ts');
     });
-    console.log(commandFiles);
     return Promise.all(commandFiles.map(async (cmdFile) => (await Promise.resolve().then(() => __importStar(require(`${route}/${cmdFile}`))))));
 };
 exports.getCommands = getCommands;

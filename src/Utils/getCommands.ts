@@ -8,7 +8,6 @@ export const getCommands = async (): Promise<Command[]> => {
         const ext = path.extname(file).toLowerCase()
         return (ext === '.js' || ext === '.ts')
     });
-    console.log(commandFiles)
     return Promise.all(
         commandFiles.map(
             async (cmdFile: string) =>
