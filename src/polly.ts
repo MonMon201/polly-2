@@ -1,6 +1,8 @@
 import { parse } from 'discord-command-parser';
 import { Message } from 'discord.js';
 import { Polly } from './Client/Client';
+import { prefix } from './constants';
+import { checkWhiteList } from './Utils/whiteList';
 
 const polly = new Polly();
 
@@ -18,10 +20,11 @@ polly
     .on('message', async (message: Message) => {
         if (message.author.bot) return;
         if (!message.guild) return;
+        if (!checkWhiteList(message)) return;
         console.log(
             `message arrived, author ${message.author.username}, channel ${message.guild?.name}, message ${message.content}`,
         );
-        const parsed = parse(message, '!', {});
+        const parsed = parse(message, `${prefix}`, {});
         if (!parsed.success) return;
         console.log(`command: ${parsed.command}`);
         console.log(`args: ${parsed.arguments}`);
