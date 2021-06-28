@@ -13,7 +13,7 @@ const loadPoll = async (message, args) => {
     console.log(`Save: ${saveFileName}\nStatus: exists`);
     const rawData = fs_1.readFileSync(savePath);
     const poll = JSON.parse(rawData.toString());
-    console.log(`parsed: ${poll}`);
+    console.log(`parsed saves: ${JSON.stringify(poll)}`);
     await runPoll_1.runPoll(message, poll.options);
 };
 const command = {
