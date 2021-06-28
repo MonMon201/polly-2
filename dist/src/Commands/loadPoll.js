@@ -18,10 +18,18 @@ const loadPoll = async (message, args) => {
     await runPoll_1.runPoll(message, poll.options);
 };
 const command = {
-    name: 'loadPoll',
+    name: 'load_poll',
     description: 'Runs saved poll',
     example: `${constants_1.prefix}loadPoll PollName`,
     execute: loadPoll,
+    options: [
+        {
+            name: 'save',
+            description: `type in save you'd like to run`,
+            type: 3,
+            required: true,
+        },
+    ],
 };
 module.exports = command;
 //# sourceMappingURL=loadPoll.js.map

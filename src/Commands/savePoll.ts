@@ -22,10 +22,24 @@ const savePoll = async (message: Message, args: string[]) => {
 };
 
 const command: Command = {
-    name: 'savePoll',
+    name: 'save_poll',
     description: 'Create a new poll',
     execute: savePoll,
     example: `${prefix}savePoll PollName option a, option b, option c`,
+    options: [
+        {
+            name: 'save',
+            description: `type in name for save`,
+            type: 3,
+            required: true,
+        },
+        {
+            name: 'options',
+            description: `type in options you'd like to save`,
+            type: 3,
+            required: true,
+        },
+    ],
 };
 
 module.exports = command;

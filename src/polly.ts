@@ -2,18 +2,25 @@ import { parse } from 'discord-command-parser';
 import { Message } from 'discord.js';
 import { Polly } from './Client/Client';
 import { prefix } from './constants';
+import { getConfig } from './Env/environment';
+import { setDiscordBotCommands } from './Utils/setDiscordCommands';
 import { checkWhiteList } from './Utils/whiteList';
 
 const polly = new Polly();
 
 polly
-    .on('ready', () => {
-        console.log(`${polly.user?.username} bot has been started!`);
+    .on('ready', async () => {
         console.log(`Guilds involved:`);
         polly.guilds.cache.map((el) => {
             console.log(`${el.name}`);
         });
-        polly.user?.setActivity('!help :)', { type: 'LISTENING' });
+        polly.user?.setActivity(`${prefix}help :)`, { type: 'LISTENING' });
+        const token = getConfig().token;
+        const id = polly.user?.id || '';
+        const applicationCommands = await setDiscordBotCommands(token, id);
+        // console.log(applicationCommands);
+        applicationCommands.map((applicationCommand) => console.log(`${applicationCommand.name} was added to bot's slashcommands`))
+        console.log(`${polly.user?.username} bot has been started!`);
     })
     .on('warn', (info) => console.log(info))
     .on('error', console.error)
@@ -22,7 +29,7 @@ polly
         if (!message.guild) return;
         if (!checkWhiteList(message)) return;
         console.log(
-            `message arrived, author ${message.author.username}, channel ${message.guild?.name}, message ${message.content}`,
+            `message arrived, author: ${message.author.username}, guild: ${message.guild.name}, guild id: ${message.guild.id}, message ${message.content}`,
         );
         const parsed = parse(message, `${prefix}`, {});
         if (!parsed.success) return;

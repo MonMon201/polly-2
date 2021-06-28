@@ -20,10 +20,18 @@ const loadPoll = async (message: Message, args: string[]) => {
 };
 
 const command: Command = {
-    name: 'loadPoll',
+    name: 'load_poll',
     description: 'Runs saved poll',
     example: `${prefix}loadPoll PollName`,
     execute: loadPoll,
+    options: [
+        {
+            name: 'save',
+            description: `type in save you'd like to run`,
+            type: 3,
+            required: true,
+        },
+    ],
 };
 
 module.exports = command;
