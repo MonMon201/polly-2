@@ -18,11 +18,11 @@ polly
     .on('error', console.error)
     .on('message', async (message) => {
     var _a;
-    console.log(`message arrived, author ${message.author.username}, channel ${(_a = message.guild) === null || _a === void 0 ? void 0 : _a.name}, message ${message.content}`);
     if (message.author.bot)
         return;
     if (!message.guild)
         return;
+    console.log(`message arrived, author ${message.author.username}, channel ${(_a = message.guild) === null || _a === void 0 ? void 0 : _a.name}, message ${message.content}`);
     const parsed = discord_command_parser_1.parse(message, '!', {});
     if (!parsed.success)
         return;

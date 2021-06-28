@@ -29,7 +29,7 @@ const getCommands = async () => {
     const route = `${__dirname}/../Commands`;
     const commandFiles = fs_1.readdirSync(route).filter((file) => {
         const ext = path_1.default.extname(file).toLowerCase();
-        return (ext === '.js' || ext === '.ts');
+        return ext === '.js' || ext === '.ts';
     });
     return Promise.all(commandFiles.map(async (cmdFile) => (await Promise.resolve().then(() => __importStar(require(`${route}/${cmdFile}`))))));
 };
