@@ -11,6 +11,7 @@ polly
         polly.guilds.cache.map((el) => {
             console.log(`${el.name}`);
         });
+        polly.user?.setActivity('Type !help to see commands :)')
     })
     .on('warn', (info) => console.log(info))
     .on('error', console.error)
