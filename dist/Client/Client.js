@@ -11,7 +11,6 @@ class Polly extends discord_js_1.Client {
     async start(config) {
         console.log(`Starting in ${config.prod ? 'production' : 'development'} mode...`);
         const commands = await getCommands_1.getCommands();
-        console.log(commands);
         commands.map((command) => this.commands.set(command.name, command));
         console.log(`Commands have been imported, commands imported: ${this.commands.map((command) => `\n${command.name}`)}`);
         this.login(config.token);

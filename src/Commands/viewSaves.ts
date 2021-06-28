@@ -1,7 +1,7 @@
 import { Message } from 'discord.js';
 import { existsSync } from 'fs';
-import { readdirSync } from 'node:fs';
-import path from 'node:path';
+import { readdirSync } from 'fs';
+import path from 'path';
 import { Command } from '../Interfaces/Command';
 import { showMessage } from '../Utils/showMessage';
 

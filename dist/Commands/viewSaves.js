@@ -4,15 +4,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
-const node_fs_1 = require("node:fs");
-const node_path_1 = __importDefault(require("node:path"));
+const fs_2 = require("fs");
+const path_1 = __importDefault(require("path"));
 const showMessage_1 = require("../Utils/showMessage");
 const viewSaves = async (message) => {
     const savesRoute = `${__dirname}/../../saves`;
     if (!fs_1.existsSync(savesRoute))
         return;
-    const saves = node_fs_1.readdirSync(savesRoute).filter((file) => {
-        const ext = node_path_1.default.extname(file).toLowerCase();
+    const saves = fs_2.readdirSync(savesRoute).filter((file) => {
+        const ext = path_1.default.extname(file).toLowerCase();
         return (ext === '.json');
     });
     console.log(`parsed saves: ${saves}`);
