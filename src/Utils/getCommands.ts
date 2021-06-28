@@ -5,8 +5,8 @@ import { Command } from '../Interfaces/Command';
 export const getCommands = async (): Promise<Command[]> => {
     const route = `${__dirname}/../Commands`;
     const commandFiles = readdirSync(route).filter((file) => {
-        const ext = path.extname(file).toLowerCase()
-        return (ext === '.js' || ext === '.ts')
+        const ext = path.extname(file).toLowerCase();
+        return ext === '.js' || ext === '.ts';
     });
     return Promise.all(
         commandFiles.map(

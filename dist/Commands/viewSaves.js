@@ -13,7 +13,7 @@ const viewSaves = async (message) => {
         return;
     const saves = fs_2.readdirSync(savesRoute).filter((file) => {
         const ext = path_1.default.extname(file).toLowerCase();
-        return (ext === '.json');
+        return ext === '.json';
     });
     console.log(`parsed saves: ${saves}`);
     await Promise.all(saves.map(async (save) => await showMessage_1.showMessage(message, save)));
