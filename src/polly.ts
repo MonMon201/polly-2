@@ -15,11 +15,11 @@ polly
     .on('warn', (info) => console.log(info))
     .on('error', console.error)
     .on('message', async (message: Message) => {
+        if (message.author.bot) return;
+        if (!message.guild) return;
         console.log(
             `message arrived, author ${message.author.username}, channel ${message.guild?.name}, message ${message.content}`,
         );
-        if (message.author.bot) return;
-        if (!message.guild) return;
         const parsed = parse(message, '!', {});
         if (!parsed.success) return;
         console.log(`command: ${parsed.command}`);
