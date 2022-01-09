@@ -8,6 +8,12 @@ export const getConfig = (): Config => {
             prod: true,
         };
     }
+    if (nodeEnv.trim() === 'nonprod') {
+        return {
+            token: process.env.NON_PROD || '',
+            prod: true,
+        };
+    }
     return {
         token: process.env.TEST_TOKEN0 || '',
         prod: false,
