@@ -1,1 +1,0 @@
-{"version":3,"file":"getApiCommands.js","sourceRoot":"","sources":["../../../src/Utils/getApiCommands.ts"],"names":[],"mappings":";;;;;;AAAA,kDAA4C;AAGrC,MAAM,cAAc,GAAG,KAAK,EAAE,KAAa,EAAE,GAAW,EAAgD,EAAE;IAC7G,OAAO,eAAK,CAAC,GAAG,CAAC,GAAG,EAAE;QAClB,OAAO,EAAE,EAAE,aAAa,EAAE,OAAO,KAAK,EAAE,EAAC;KAC5C,CAAC,CAAA;AACN,CAAC,CAAA;AAJY,QAAA,cAAc,kBAI1B"}
