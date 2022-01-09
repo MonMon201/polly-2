@@ -4,7 +4,7 @@ import { Command } from '../Interfaces/Command';
 import { getCommands } from '../Utils/getCommands';
 
 export class Polly extends Client {
-    public commands: Collection<string, Command> = new Collection();
+    private commands: Collection<string, Command> = new Collection();
     public constructor() {
         super({});
     }
@@ -21,5 +21,9 @@ export class Polly extends Client {
             )}`,
         );
         this.login(config.token);
+    }
+
+    public getCommands() {
+        return this.commands;
     }
 }
