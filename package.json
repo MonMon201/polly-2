@@ -6,7 +6,7 @@
         "start:dev": "set NODE_ENV=development && npx tsc && nodemon ./dist/index.js",
         "build": "rm -r ./dist && npx tsc",
         "start": "set NODE_ENV=production && node ./dist/src/index.js",
-        "prettier": "prettier --write ./src"
+        "lint": "prettier --write ./src"
     },
     "repository": {
         "type": "git",
