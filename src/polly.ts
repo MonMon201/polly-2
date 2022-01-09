@@ -37,6 +37,7 @@ polly
         console.log(`args: ${parsed.arguments}`);
         const command = polly.commands.get(parsed.command);
         if (!command) return;
+        console.log(command)
         await command.execute(message, parsed.arguments);
     });
 
