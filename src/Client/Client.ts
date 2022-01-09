@@ -10,9 +10,9 @@ export class Polly extends Client {
     }
 
     public async start(config: Config) {
-        // console.log(
-        //     `Starting in ${config.prod ? 'production' : 'development'} mode...`,
-        // );
+        console.log(
+            `Starting in ${config.prod ? 'production' : 'development'} mode...`,
+        );
         const commands = await getCommands();
         commands.map((command) => this.commands.set(command.name, command));
         console.log(
@@ -20,6 +20,6 @@ export class Polly extends Client {
                 (command) => `\n${command.name}`,
             )}`,
         );
-        this.login(process.env.TOKEN);
+        this.login(config.token);
     }
 }
