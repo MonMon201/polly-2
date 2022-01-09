@@ -5,6 +5,7 @@ import { prefix } from './constants';
 import { getConfig } from './Env/environment';
 import { setDiscordBotCommands } from './Utils/setDiscordCommands';
 import { checkWhiteList } from './Utils/whiteList';
+import config from '../config.json';
 
 const polly = new Polly();
 
@@ -25,10 +26,11 @@ polly
     .on('warn', (info) => console.log(info))
     .on('error', console.error)
     .on('message', async (message: Message) => {
-        console.log('Message')
         if (message.author.bot) return;
         if (!message.guild) return;
-        // if (!checkWhiteList(message)) return;
+        if (config.isWhiteList) {
+            if (!checkWhiteList(message)) return;
+        }
         console.log(
             `message arrived, author: ${message.author.username}, guild: ${message.guild.name}, guild id: ${message.guild.id}, message ${message.content}`,
         );
