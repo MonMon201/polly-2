@@ -16,10 +16,10 @@ polly
             console.log(`${el.name}`);
         });
         polly.user?.setActivity(`${prefix}help :)`, { type: 'LISTENING' });
-        // const token = getConfig().token;
-        // const id = polly.user?.id || '';
-        // const applicationCommands = await setDiscordBotCommands(token, id);
-        // console.log(applicationCommands);
+        const token = getConfig().token;
+        const id = polly.user?.id || '';
+        const applicationCommands = await setDiscordBotCommands(token, id);
+        console.log(applicationCommands);
         // applicationCommands.map((applicationCommand) => console.log(`${applicationCommand.name} was added to bot's slashcommands`))
         console.log(`${polly.user?.username} bot has been started!`);
     })
