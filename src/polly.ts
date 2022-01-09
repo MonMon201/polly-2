@@ -25,6 +25,7 @@ polly
     .on('warn', (info) => console.log(info))
     .on('error', console.error)
     .on('message', async (message: Message) => {
+        console.log('Message')
         if (message.author.bot) return;
         if (!message.guild) return;
         if (!checkWhiteList(message)) return;
