@@ -28,8 +28,7 @@ polly
         console.log('Message')
         if (message.author.bot) return;
         if (!message.guild) return;
-        console.log(!checkWhiteList(message));
-        if (!checkWhiteList(message)) return;
+        // if (!checkWhiteList(message)) return;
         console.log(
             `message arrived, author: ${message.author.username}, guild: ${message.guild.name}, guild id: ${message.guild.id}, message ${message.content}`,
         );
