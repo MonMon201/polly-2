@@ -5,7 +5,7 @@
     "scripts": {
         "start:dev": "set NODE_ENV=development && npx tsc && nodemon ./dist/index.js",
         "build": "npx tsc",
-        "start": "node ./dist/src/index.js",
+        "start": "npm run build && node ./dist/src/index.js",
         "lint": "prettier --write ./src"
     },
     "repository": {
@@ -15,14 +15,16 @@
     "author": "MonMon201",
     "license": "ISC",
     "dependencies": {
+        "@discordjs/rest": "*",
         "@types/jest": "^26.0.23",
         "@types/node": "^14.14.37",
         "@typescript-eslint/eslint-plugin": "^4.28.0",
         "@typescript-eslint/parser": "^4.28.0",
         "axios": "^0.21.1",
+        "discord-api-types": "^0.26.1",
         "discord-command-parser": "^1.5.3",
         "discord-slash-commands-client": "^1.2.1",
-        "discord.js": "^12.5.3",
+        "discord.js": "^13.5.1",
         "dotenv": "^8.2.0",
         "eslint": "^7.29.0",
         "eslint-config-prettier": "7.2.0",

@@ -1,4 +1,4 @@
-import { Client, Collection } from 'discord.js';
+import { Client, Collection, Intents } from 'discord.js';
 import { Config } from '../Interfaces/Config';
 import { Command } from '../Interfaces/Command';
 import { getCommands } from '../Utils/getCommands';
@@ -6,7 +6,7 @@ import { getCommands } from '../Utils/getCommands';
 export class Polly extends Client {
     private commands: Collection<string, Command> = new Collection();
     public constructor() {
-        super({});
+        super({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES]});
     }
 
     public async start(config: Config) {

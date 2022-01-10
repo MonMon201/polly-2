@@ -6,6 +6,10 @@ import { getConfig } from './Env/environment';
 import { setDiscordBotCommands } from './Utils/setDiscordCommands';
 import { checkWhiteList } from './Utils/whiteList';
 import config from '../config.json';
+import { REST } from '@discordjs/rest';
+import { Routes } from 'discord-api-types/v9';
+import { getCommands } from './Utils/getCommands';
+import { addSlashCommands } from './Utils/addSlashCommands';
 
 const polly = new Polly();
 
@@ -16,11 +20,7 @@ polly
             console.log(`${el.name}`);
         });
         polly.user?.setActivity(`${prefix}help :)`, { type: 'LISTENING' });
-        const token = getConfig().token;
-        const id = polly.user?.id || '';
-        const applicationCommands = await setDiscordBotCommands(token, id);
-        console.log(applicationCommands);
-        // applicationCommands.map((applicationCommand) => console.log(`${applicationCommand.name} was added to bot's slashcommands`))
+        await addSlashCommands(polly);
         console.log(`${polly.user?.username} bot has been started!`);
     })
     .on('warn', (info) => console.log(info))
